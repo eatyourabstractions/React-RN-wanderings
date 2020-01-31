@@ -1,5 +1,6 @@
 
 import Search from './Search';
+import QuotesList from './QuotesList';
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -15,11 +16,13 @@ export default class tut4 extends Component {
   this.firstpage=this.firstpage.bind(this);
   this.secondpage=this.secondpage.bind(this);
       this._renderComponent=this._renderComponent.bind(this);
+      this.updateMyQuotes=this.updateMyQuotes.bind(this);
   this.state = {
     shows: <Text>mike</Text>,
     page:1,
     firstpageactive:true,
     secondpageactive:false,
+      quotes: []
 
   } ;
 }
@@ -51,9 +54,18 @@ export default class tut4 extends Component {
 
     );
   }
+  
+updateMyQuotes(quotesArr){
+    this.setState({quotes: quotesArr})
+}  
+  
 _renderComponent(){
   if(this.state.page === 1){
-    return <Search/>
+    return(<>
+     <Search updateMyQuotes={this.updateMyQuotes }/>
+     <QuotesList myQuotes={this.state.quotes} />
+           </>
+        )
             
   }else{
     return <Text>baez</Text> //... Your Component 2 to display
