@@ -1,0 +1,39 @@
+GET http://localhost:3000/subscribers
+
+###
+
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+  "name": "Michael",
+  "subscribedChannel": "Matos Family"
+}
+
+###
+
+GET http://localhost:3000/subscribers/5e68011ef4d342867a60f48c
+
+###
+
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+  "name": "lizzy",
+  "subscribedChannel": "3b1b Channel"
+}
+
+###
+
+DELETE http://localhost:3000/subscribers/5e68011ef4d342867a60f48c
+
+
+###
+
+PATCH http://localhost:3000/subscribers/5e6806b5b149cc877fa6612f
+Content-Type: application/json 
+
+{
+  "name": "Tommy"
+}
