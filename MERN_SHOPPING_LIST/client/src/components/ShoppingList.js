@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import {Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import {connect } from 'react-redux';
@@ -22,14 +22,14 @@ function ShoppingList(props){
             
             <ListGroup>
                 <TransitionGroup className="shopping-list">
-                    {Items.map(({id, name}) => (
-                        <CSSTransition key={id} timeout={500} classNames="fade">
+                    {Items.map(({_id, name}) => (
+                        <CSSTransition key={_id} timeout={500} classNames="fade">
                             <ListGroupItem>
                                 <Button 
                                 className="remove-btn"
                                 color="danger"
                                 size="sm"
-                                onClick={() => onDeleteClick(id)}>&times;</Button>
+                                onClick={() => onDeleteClick(_id)}>&times;</Button>
                                 {name}
                                 </ListGroupItem>
                         </CSSTransition>
@@ -42,6 +42,7 @@ function ShoppingList(props){
 }
 
 ShoppingList.propTypes = {
+    deleteItem: PropTypes.func.isRequired,
     getItems: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired
 }
