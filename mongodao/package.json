@@ -1,0 +1,11 @@
+{
+  "name": "mongodao",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "michael matos",
+  "license": "MIT",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "mongodb": "^3.5.5"
+  }
+}
